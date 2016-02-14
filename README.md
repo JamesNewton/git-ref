@@ -219,13 +219,18 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     remote repo with:<BR>
     <TT><B>git remote add <I>remoteName</I> <I>URL</I></B></TT><BR>
     where <I>remoteName </I>any name you would like to give this remote, and
-    <I>URL </I>is the HTTPS URL. You can check the remotes that are associated
-    with a local repo, including name and URL,&nbsp;with <BR>
+    <I>URL </I>is the HTTPS URL. Each remote is given a name so that you can
+    have several. You can check the remotes that are associated with a local
+    repo, including name and URL,&nbsp;with <BR>
     <TT><B>git remote -v</B></TT>
   <LI>
     load the data from the local repo to the remote by doing the first
     <I>push:</I><BR>
-    <TT><B>git push <I>remoteName branchName</I></B></TT>
+    <TT><B>git push <I>remoteName branchName</I></B></TT><BR>
+    you should be asked for your username and password. To avoid entering your
+    username each time, you can add a section to the config
+    file:<BR>
+    <TT>[credential "https://example.com"]<BR>
+    &nbsp;username = <I>username</I></TT>
 </UL>
-=======
 </BODY></HTML>
