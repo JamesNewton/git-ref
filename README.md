@@ -227,4 +227,5 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     <I>push:</I><BR>
     <TT><B>git push <I>remoteName branchName</I></B></TT>
 </UL>
+=======
 </BODY></HTML>
