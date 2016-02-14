@@ -24,13 +24,13 @@ web interface, and shared hub see:<BR>
 <A HREF="https://git-for-windows.github.io/">msysgit</A> on Windows, but
 it should apply to all versions and operating systems</I>.
 <P>
-With GIT, you can make a <B>local copy</B> of a remote <B>repository</B>
-with the command: <BR>
+With GIT, you can make a <B>local copy</B> of a <B>remote repository</B>
+(or repo) with the command: <BR>
 <B><TT>git clone <I>URL</I></TT> </B><BR>
 This copies in ALL the changes to the files, not just the current version.
 <P>
-We can see a simple list of the <B>past changes</B> to a repository with
-the command: <BR>
+We can see a simple list of the <B>past changes</B> to a repo with the command:
+<BR>
 <B><TT>git log</TT> </B><BR>
 issued inside the repositories main folder. The list includes unique <B>commit
 ID's</B> along with the data, author and comment about each entry.
@@ -50,7 +50,7 @@ ID's</B> along with the data, author and comment about each entry.
 To view the <B>differences</B> between two commit ID's use the command: <BR>
 <B><TT>git diff <I>commitID</I> <I>commitID</I></TT> </B><BR>
 This will list each file that has changed, and the differences between the
-files in diff -c format. <!-- 42190.694212963 EOR --><BR>
+files in diff -c format. <BR>
 <TT><B>git diff</B></TT> by itself shows the difference between the working
 files and the staging area (files which have been added, but not yet
 committed)<BR>
@@ -63,30 +63,30 @@ To <B>go back</B> to a prior version or <B>branch</B>, use <BR>
 <TT><B>git checkout <I>commitID</I></B></TT><BR>
 commitID can be "master" to <B>return to the head</B>.
 <P>
-We can quickly see the <B>status</B> of the repository, including which files
-are not committed, by running<BR>
+We can quickly see the <B>status</B> of the repo, including which files are
+not committed, by running<BR>
 <TT><B>git status</B></TT><BR>
 This will list the current branch, the current commit, and which files are
 not being tracked or have been changed.
 <P>
-To turn an <B>exiting folder</B> into a git repository:<BR>
+To turn an <B>exiting folder</B> into a git repo:<BR>
 <TT><B>git init</B></TT><BR>
 git creates a hidden metadata folder to store information about the changes
 made to a file. This must be separate from the file itself, since only the
 currently checked out version of the file data will be in the file.
 <P>
-Note that files in the folder are NOT automatically commited to the repository,
+Note that files in the folder are NOT automatically commited to the repo,
 nor will they be included in a commit. You have to <B>stage</B> files to
 be<B> tracked</B>, and <I>then</I> <B>commit</B> them. Staged files are going
 to be version tracked. Keeping them separate from other files provides a
 way to focus tracking on only those files which need it.<BR>
-<B>Add files</B> to the repository with <BR>
+<B>Add files</B> to the repo with <BR>
 <B><TT>git add</TT> <I>filename</I></B><BR>
 you can <B>remove files</B> from tracking with <BR>
 <TT><B>git reset <I>filename</I></B></TT>
 <P>
-And then to commit those changes into the new repository (it doesn't
-automatically do that when you init) with an optional message.<BR>
+And then to commit those changes into the new repo (it doesn't automatically
+do that when you init) with an optional message.<BR>
 <B><TT>git commit</TT> <I>[</I> -m "<I>message</I>" <I>]</I></B><BR>
 (by convention, the message should be a command. E.g. "Add stuff" instead
 of "Added stuff" or "Adding stuff"). If you fail to include the message on
@@ -201,12 +201,30 @@ graphical interface and desktop as well as mobile integration. It also provides
 access control and several collaboration features such as bug tracking, feature
 requests, task management, and wikis for every project
 <P>
-You can make a <B>local copy</B> of a <B>remote repository</B> on github
-with the command: <BR>
+You can make a <B>local copy</B> of a <B>remote repository</B> (or
+<I>repo</I>) on github with the command: <BR>
 <B><TT>git clone
-https://github.com/<I>ProfileName/RepositoryName</I>.git</TT></B>
+https://github.com/<I>ProfileName/repoName</I>.git</TT></B>
 <P>
-To make a remote copy of a local repository, first create the repository
-at the remote system. For example, in github, click the "+" in the upper
-right corner (after logging in) and select New repository, then
+To make a <B>remote copy</B> of a <B>local repo, </B>
+<UL>
+  <LI>
+    first create the repo at the remote system. For example, in github, click
+    the "+" in the upper right corner (after logging in) and select New repo,
+    enter a unique name (github will check) and decide what license you want
+    and if you want to start with a README.md file. Once the repo is created,
+    get the HTTPS link to it.
+  <LI>
+    then init or cd into a local repo, and add a link between the local and the
+    remote repo with:<BR>
+    <TT><B>git remote add <I>remoteName</I> <I>URL</I></B></TT><BR>
+    where <I>remoteName </I>any name you would like to give this remote, and
+    <I>URL </I>is the HTTPS URL. You can check the remotes that are associated
+    with a local repo, including name and URL,&nbsp;with <BR>
+    <TT><B>git remote -v</B></TT>
+  <LI>
+    load the data from the local repo to the remote by doing the first
+    <I>push:</I><BR>
+    <TT><B>git push <I>remoteName branchName</I></B></TT>
+</UL>
 </BODY></HTML>
