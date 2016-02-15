@@ -2,7 +2,7 @@
 <HEAD>
   <!-- Created with AOLpress/2.0 -->
   <!-- AP: Created on: 10-Feb-2016 -->
-  <!-- AP: Last modified: 13-Feb-2016 -->
+  <!-- AP: Last modified: 14-Feb-2016 -->
   <TITLE>GIT Version Control Software</TITLE>
   <LINK REL="home" HREF="http://www.ecomorder.com/techref/app">
 </HEAD>
@@ -218,10 +218,11 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     then init or cd into a local repo, and add a link between the local and the
     remote repo with:<BR>
     <TT><B>git remote add <I>remoteName</I> <I>URL</I></B></TT><BR>
-    where <I>remoteName </I>any name you would like to give this remote, and
-    <I>URL </I>is the HTTPS URL. Each remote is given a name so that you can
-    have several. You can check the remotes that are associated with a local
-    repo, including name and URL,&nbsp;with <BR>
+    where <I>remoteName </I>is any name you would like to give this remote but
+    by convention is most often <TT>origin</TT>, and <I>URL </I>is the HTTPS
+    URL. Each remote is given a name so that you can have several. You can check
+    the remotes that are associated with a local repo, including name and
+    URL,&nbsp;with the verbose version of get remote:<BR>
     <TT><B>git remote -v</B></TT>
   <LI>
     load the data from the local repo to the remote by doing the first
@@ -231,6 +232,11 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     username each time, you can add a section to the config
     file:<BR>
     <TT>[credential "https://example.com"]<BR>
-    &nbsp;username = <I>username</I></TT>
+    &nbsp;username = <I>username</I></TT><BR>
+    To avoid entering both username and password, you can setup credentials.
+    For more
+    see:&nbsp;<A HREF="http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github">1</A>,
+    <A HREF="https://stackoverflow.com/questions/11693074/git-credential-cache-is-not-a-git-command">2</A>,
+    3
 </UL>
 </BODY></HTML>
