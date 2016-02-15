@@ -235,8 +235,10 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     &nbsp;username = <I>username</I></TT><BR>
     To avoid entering both username and password, you can setup credentials.
     For more
-    see:&nbsp;<A HREF="http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github">1</A>,
-    <A HREF="https://stackoverflow.com/questions/11693074/git-credential-cache-is-not-a-git-command">2</A>,
-    3
+    see:&nbsp;<A HREF="http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github">General</A>,
+    <A HREF="https://stackoverflow.com/questions/11693074/git-credential-cache-is-not-a-git-command">msysgit
+    windows</A>,
+    <A HREF="https://discussions.udacity.com/t/github-authentication-error/152121">troubleshooting
+    msysgit windows</A>
 </UL>
 </BODY></HTML>
