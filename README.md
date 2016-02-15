@@ -57,7 +57,7 @@ committed)<BR>
 <TT><B>git diff --staged</B></TT> shows the difference between the staging
 area and the head commit.<BR>
 <B><TT>git show <I>commitID</I> </TT></B>shows the difference between a commitID
-and it's immidiate "parent"... the commit just before it.
+and it's immediate "parent"... the commit just before it.
 <P>
 To <B>go back</B> to a prior version or <B>branch</B>, use <BR>
 <TT><B>git checkout <I>commitID</I></B></TT><BR>
@@ -75,7 +75,7 @@ git creates a hidden metadata folder to store information about the changes
 made to a file. This must be separate from the file itself, since only the
 currently checked out version of the file data will be in the file.
 <P>
-Note that files in the folder are NOT automatically commited to the repo,
+Note that files in the folder are NOT automatically committed to the repo,
 nor will they be included in a commit. You have to <B>stage</B> files to
 be<B> tracked</B>, and <I>then</I> <B>commit</B> them. Staged files are going
 to be version tracked. Keeping them separate from other files provides a
@@ -90,7 +90,7 @@ do that when you init) with an optional message.<BR>
 <B><TT>git commit</TT> <I>[</I> -m "<I>message</I>" <I>]</I></B><BR>
 (by convention, the message should be a command. E.g. "Add stuff" instead
 of "Added stuff" or "Adding stuff"). If you fail to include the message on
-the command line, git will open an editor window with a default messge and
+the command line, git will open an editor window with a default message and
 expect you to edit that. By default, the editor used is vi. vi is not known
 for making friends. Move cursor with arrows, press the i key to insert text,
 press Esc to stop inserting. Type :wq to save and quit. If something goes
@@ -102,11 +102,11 @@ grouping of changes</B>, it is sometimes useful to remove one or more files
 from tracking via the reset command before a commit, then re-add those files
 and make a second commit.
 <P>
-<B>Branches</B> allow you ot make completely seperate versions, as ooposed
-to revisions, of your files which are tracked seperately over time and which
+<B>Branches</B> allow you to make completely separate versions, as opposed
+to revisions, of your files which are tracked separately over time and which
 you can switch between. It is always good to keep a known working branch,
 <B>Master is the default branch</B>, and then experiment with a named branch
-off the Master "trunk". Branches can also be used to <B>allow mulitple people
+off the Master "trunk". Branches can also be used to <B>allow multiple people
 to work at the same time</B> on the same code by creating a branch for each
 person. Commits are only added to the branch you currently have checked out.
 You can merge branches (usually back to the master) if the experiment works
@@ -155,10 +155,10 @@ source of conflict is line ending differences between operating systems.
 See:
 <A HREF="https://help.github.com/articles/dealing-with-line-endings/#platform-all">https://help.github.com/articles/dealing-with-line-endings/#platform-all</A>
 <P>
-To continue the merge, and work with git to resove the conflicts, don't abort
-the merge, but instead edit the files git called out in the error message.
+To continue the merge, and work with git to resolve the conflicts, don't
+abort the merge, but instead edit the files git called out in the error message.
 You will find that git has edited those files to include tags marking areas
-of confilict:
+of conflict:
 <UL>
   <LI>
     <TT>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</TT> marks the start of a conflict.
@@ -177,12 +177,12 @@ remove the lines git added to mark the conflict. When you are finished, use
 <TT>git status</TT> to verify the new file shows "<TT>both modified</TT>"
 (meaning it was changed in both branches) and then use <TT>git add
 <I>filename</I></TT> to mark the new version to be committed. Finish by using
-<TT>git commit</TT> to complete the merge. The message git autogenerates
-will show what branches were merged and which files had conficts.
+<TT>git commit</TT> to complete the merge. The message git auto-generates
+will show what branches were merged and which files had conflicts.
 <P>
 After a merge, all the commits in the merged branches will show in the log
-in cronological order. As a result, the diff between commitID's may not show
-only the changes made by the parent commit. Use:<BR>
+in chronological order. As a result, the diff between commitID's may not
+show only the changes made by the parent commit. Use:<BR>
 <B><TT>git show <I>commitID</I> </TT></B><BR>
 to display the changes from that ID's parent.
 <P>
@@ -190,16 +190,15 @@ After a merge, if the branch name that was merged into the current branch
 is not wanted, it can be deleted with :<BR>
 <TT><B>git branch -d <I>branchName</I></B></TT>
 <H2>
-  WORKING WITH GITHUB / Remote Repository Servers
+  WORKING WITH <A HREF="github.htm">GITHUB</A> / Remote Repository Servers
 </H2>
 <P>
 <A HREF="https://github.com/">GitHub.com</A> is a web-based Git repository
 hosting service. It offers all of the distributed revision control and source
-code management (SCM) functionality of Git as well as adding its own features.
-Unlike Git, which is strictly a command-line tool, GitHub provides a Web-based
-graphical interface and desktop as well as mobile integration. It also provides
-access control and several collaboration features such as bug tracking, feature
-requests, task management, and wikis for every project
+code management (SCM) functionality of a standard remote Git repo server
+allowing multiple users to collaborate on a project through local Git repos.
+It provides access control and several collaboration features such as bug
+tracking, feature requests, task management, and wikis for every project.
 <P>
 You can make a <B>local copy</B> of a <B>remote repository</B> (or
 <I>repo</I>) on github with the command: <BR>
@@ -241,4 +240,5 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     <A HREF="https://discussions.udacity.com/t/github-authentication-error/152121">troubleshooting
     msysgit windows</A>
 </UL>
+<P>
 </BODY></HTML>
