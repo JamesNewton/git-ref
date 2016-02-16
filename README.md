@@ -1,8 +1,6 @@
 <HTML>
 <HEAD>
-  <!-- Created with AOLpress/2.0 -->
-  <!-- AP: Created on: 10-Feb-2016 -->
-  <!-- AP: Last modified: 14-Feb-2016 -->
+
   <TITLE>GIT Version Control Software</TITLE>
   <LINK REL="home" HREF="http://www.ecomorder.com/techref/app">
 </HEAD>
