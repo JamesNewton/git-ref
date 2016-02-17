@@ -1,6 +1,8 @@
 <HTML>
 <HEAD>
-
+  <!-- Created with AOLpress/2.0 -->
+  <!-- AP: Created on: 10-Feb-2016 -->
+  <!-- AP: Last modified: 17-Feb-2016 -->
   <TITLE>GIT Version Control Software</TITLE>
   <LINK REL="home" HREF="http://www.ecomorder.com/techref/app">
 </HEAD>
@@ -122,6 +124,10 @@ out</B>. So there may be other commitID's which are not listed if they are
 on another branch. Having a diagram that shows all the branches would be
 really nice...
 <P>
+Because branches are basically just names for commitID's, we can view the
+<B>differences</B> between two branches with the command: <BR>
+<B><TT>git diff <I>branchName branchName</I></TT></B>
+<P>
 If you check out a commitID which is not at the end, or HEAD, of a branch,
 and then commit new changes from that revision, you will be in <B>"detached
 HEAD"</B> state. You are following a new, unnamed, path which is sprouting
@@ -132,9 +138,10 @@ use:<BR>
 <TT><B>git checkout -b <I>branchName</I></B></TT><BR>
 which both makes a new branch and then checks it out.
 <P>
-<B>To merge </B>branches back together, differences must be resolved. That
-can be difficult, but git can figure out most issues by itself by looking
-through the prior versions on each branch to see what was added or removed.
+<B>To <A NAME="merge">merge</A> </B>branches back together, differences must
+be resolved. That can be difficult, but git can figure out most issues by
+itself by looking through the prior versions on each branch to see what was
+added or removed.
 <P>
 To start a merge, checkout the branch were you want to continue development
 from in the future. Normally, this is the Master branch. Then issue the
@@ -172,11 +179,15 @@ of conflict:
 Edit the file to combine the code, retaining all the features you want. Work
 with others if you aren't sure what their changes accomplish. Be sure to
 remove the lines git added to mark the conflict. When you are finished, use
-<TT>git status</TT> to verify the new file shows "<TT>both modified</TT>"
-(meaning it was changed in both branches) and then use <TT>git add
-<I>filename</I></TT> to mark the new version to be committed. Finish by using
-<TT>git commit</TT> to complete the merge. The message git auto-generates
-will show what branches were merged and which files had conflicts.
+<TT><BR>
+git status</TT> <BR>
+to verify the new file shows "<TT>both modified</TT>" (meaning it was changed
+in both branches) and then use <TT><BR>
+git add <I>filename</I></TT> <BR>
+to mark the new version to be committed. Finish by using <TT><BR>
+git commit</TT> <BR>
+to complete the merge. The message git auto-generates will show what branches
+were merged and which files had conflicts.
 <P>
 After a merge, all the commits in the merged branches will show in the log
 in chronological order. As a result, the diff between commitID's may not
@@ -188,7 +199,8 @@ After a merge, if the branch name that was merged into the current branch
 is not wanted, it can be deleted with :<BR>
 <TT><B>git branch -d <I>branchName</I></B></TT>
 <H2>
-  WORKING WITH <A HREF="github.htm">GITHUB</A> / Remote Repository Servers
+  Working With Remote Repository Servers, e.g.
+  <A HREF="../method/github.htm">GitHub</A>
 </H2>
 <P>
 <A HREF="https://github.com/">GitHub.com</A> is a web-based Git repository
@@ -203,14 +215,20 @@ You can make a <B>local copy</B> of a <B>remote repository</B> (or
 <B><TT>git clone
 https://github.com/<I>ProfileName/repoName</I>.git</TT></B>
 <P>
+To update the local from the remote, use:<BR>
+<TT><B>git pull origin master </B></TT><BR>
+assuming the name of the remote is origin (which it is by default) and the
+name of the local branch is master (which it is by default). See below for
+more.
+<P>
 To make a <B>remote copy</B> of a <B>local repo, </B>
 <UL>
   <LI>
-    first create the repo at the remote system. For example, in github, click
-    the "+" in the upper right corner (after logging in) and select New repo,
-    enter a unique name (github will check) and decide what license you want
-    and if you want to start with a README.md file. Once the repo is created,
-    get the HTTPS link to it.
+    first create the repo at the remote system. For example, in
+    <A HREF="../method/github.htm">GitHub</A>, click the "+" in the upper right
+    corner (after logging in) and select New repo, enter a unique name (github
+    will check) and decide what license you want and if you want to start with
+    a README.md file. Once the repo is created, get the HTTPS link to it.
   <LI>
     then init or cd into a local repo, and add a link between the local and the
     remote repo with:<BR>
@@ -226,8 +244,7 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     <I>push:</I><BR>
     <TT><B>git push <I>remoteName branchName</I></B></TT><BR>
     you should be asked for your username and password. To avoid entering your
-    username each time, you can add a section to the config
-    file:<BR>
+    username each time, you can add a section to the config file:<BR>
     <TT>[credential "https://example.com"]<BR>
     &nbsp;username = <I>username</I></TT><BR>
     To avoid entering both username and password, you can setup credentials.
@@ -238,5 +255,75 @@ To make a <B>remote copy</B> of a <B>local repo, </B>
     <A HREF="https://discussions.udacity.com/t/github-authentication-error/152121">troubleshooting
     msysgit windows</A>
 </UL>
+<H3>
+  Collaboration
+</H3>
 <P>
+<B>Conflicts must be resolved manually</B>: There is no system for automatically
+sycronizing repos because too many conflicts require human review to resolve.
+Googles collaborative documents avoid this problem (for the most part) by
+re-syncronizing so quickly and constantly that conflicts don't have a chance
+to develop... but that causes conflicts between programmers making incompatible
+changes in the code all at the same time, and it moves a lot of data around,
+increasing overhead.
+<P>
+<B>Fork at the Remote Repo:</B> Even if you are going to clone a remote repo
+to work on it locally, when you are collaborating or want to extend or change
+code written by someone else, it's best to "Fork" that code on the remote
+so that there is a record of the source, and the possibility for the original
+author to pull your changes back into the main project. See:
+<A HREF="../method/github.htm#Fork">GitHub:Fork</A> for detailed instructions.
+<P>
+<B>Locals may be out of sync with Remotes.</B> If changes are made by you
+in the local repo, and different, but non-conflicting&nbsp;changes are made
+by someone else to the remote repo, then there is no problem, just use the
+pull command to merge them back into your local repo:<BR>
+<TT><B>git pull <I>remoteName branchName</I></B></TT>
+<P>
+<B>Resolve Conflicts</B>: If there is a conflict, you will have to resolve
+it in several steps.
+<OL>
+  <LI>
+    It's always safe to "fetch" the remote repo by it's remote name (usually
+    origin), which will updated a local branch called
+    <I>remoteName/branchName</I>, or most often origin/master. <BR>
+    <TT><B>git fetch <I>remoteName </I></B></TT><BR>
+    This remote branch still different, and in conflict, with your local master
+    branch. And any repo with a remote has this seperate branch but it's normally
+    hidden. You can see it with <TT><BR>
+    <B>git branch -a</B></TT><BR>
+    It turns out that a <TT>git fetch</TT> is exactly what a <TT>git pull</TT>
+    does, but then it automatically starts a merge. And, in fact, we could just
+    use <TT>git pull origin master</TT> instead of <TT>git fetch</TT>, but then
+    we would be forced into a merge. It's nice to know what's going on before
+    we have to resolve it. Also, doing a fetch is a nice way to check if other
+    developers have pushed changes.
+  <LI>
+    Next, you need to use the same <A HREF="#merge">conflict resolution steps
+    listed above to merge </A>the remote branch with your local branch. We can
+    check<TT><BR>
+    <B>git status</B></TT><BR>
+    to see where we are, and we can use
+  <LI>
+    <TT><B>git diff master origin/master</B></TT><BR>
+    to see the differences in the conflicting files. Once we feel confident that
+    we can resolve the conflicts, we can use
+  <LI>
+    <TT><B>git checkout master</B></TT><BR>
+    to make sure we are on the master branch, then
+  <LI>
+    <TT><B>git merge master origin/master</B></TT><BR>
+    which will edit the conflicting files to show the issues, and list them.
+    After we edit the file to consolidate the changes and remove the
+    &lt;&lt;&lt; === &gt;&gt;&gt; tags we can use <TT></TT>
+  <LI>
+    <TT><B>git status</B></TT><BR>
+    to verify the new files show "<TT>both modified</TT>" then
+  <LI>
+    <TT><B>git add <I>filename</I></B></TT> <BR>
+    to mark the new version to be committed. Finish by using <TT></TT>
+  <LI>
+    <TT><B>git commit</B></TT> <BR>
+    to complete the merge.
+</OL>
 </BODY></HTML>
